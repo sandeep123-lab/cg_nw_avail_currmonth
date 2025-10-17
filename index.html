@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_be5b9dcf925f5763c70f938d07381ce2 {
+                #map_07e04f63034c935a8e1af92b830363cb {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -74,7 +74,117 @@
           <i class="fa fa-map-marker fa-2x" style="color:black"></i> < 50%<br>
     </div>
     
-            <div class="folium-map" id="map_be5b9dcf925f5763c70f938d07381ce2" ></div>
+<div id="login-overlay">
+    <div id="login-box">
+        <h2>Login Required</h2>
+        <p>Please enter your credentials to view the map.</p>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button id="login-button">Login</button>
+        <p id="error-message"></p>
+    </div>
+</div>
+    
+<style>
+    /* Initially hide the map */
+    #map_07e04f63034c935a8e1af92b830363cb {
+        display: none;
+    }
+    #login-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.75);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 20000; /* Ensure it's on top of everything */
+    }
+    #login-box {
+        background-color: white;
+        padding: 25px 30px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        text-align: center;
+        width: 300px;
+    }
+    #login-box h2 {
+        margin-top: 0;
+    }
+    #login-box input {
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    #login-box button {
+        width: 95%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    #login-box button:hover {
+        background-color: #0056b3;
+    }
+    #error-message {
+        color: red;
+        margin-top: 10px;
+        height: 1em;
+    }
+</style>
+    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const correctUsername = 'admin';
+        const correctPassword = 'Bsnl@1980';
+        
+        const loginButton = document.getElementById('login-button');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('error-message');
+        
+        function attemptLogin() {
+            const user = usernameInput.value;
+            const pass = passwordInput.value;
+            
+            if (user === correctUsername && pass === correctPassword) {
+                // On success, hide overlay and show map
+                document.getElementById('login-overlay').style.display = 'none';
+                const mapElement = document.getElementById('map_07e04f63034c935a8e1af92b830363cb');
+                mapElement.style.display = 'block';
+                
+                // IMPORTANT: Tell the map to resize itself to fit the container
+                // This prevents the map from appearing as a small grey square.
+                if (window.map) {
+                    window.map.invalidateSize();
+                }
+            } else {
+                // On failure, show error message
+                errorMessage.textContent = 'Invalid username or password.';
+            }
+        }
+
+        // Add event listener for the button click
+        loginButton.addEventListener('click', attemptLogin);
+
+        // Add event listener for the 'Enter' key in the password field
+        passwordInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission
+                attemptLogin();
+            }
+        });
+    });
+</script>
+    
+            <div class="folium-map" id="map_07e04f63034c935a8e1af92b830363cb" ></div>
         
 </body>
 <script>
@@ -186,7 +296,6 @@ Davda Colony, Pachpedi Naka RTP</option><option value="AADED">AADED</option><opt
                 <div style="margin-bottom: 10px; text-align: center;">
                     <button onclick="resetFilters()" style="width: 100px; padding: 8px; font-weight: bold; border-radius: 5px; cursor: pointer;">Reset Filters</button>
                 </div>
-                <!-- NEW INPUT SECTION FOR CUSTOM MARKERS -->
                 <hr style="margin-top: 15px; margin-bottom: 15px;">
                 <h4 style="margin-top: 0;"><b>Analysis Pointer</b></h4>
                 <div style="margin-bottom: 10px;">
@@ -345,7 +454,7 @@ Davda Colony, Pachpedi Naka RTP</option><option value="AADED">AADED</option><opt
 
     // This block ensures the JavaScript runs after the map is fully loaded.
     document.addEventListener('DOMContentLoaded', function () {
-        var mapName = 'map_be5b9dcf925f5763c70f938d07381ce2';
+        var mapName = 'map_07e04f63034c935a8e1af92b830363cb';
         var checkMapReady = setInterval(function() {
             if (window[mapName] && window[mapName]._leaflet_id) {
                 clearInterval(checkMapReady);
@@ -377,8 +486,8 @@ Davda Colony, Pachpedi Naka RTP</option><option value="AADED">AADED</option><opt
         }, 100);
     });
     
-            var map_be5b9dcf925f5763c70f938d07381ce2 = L.map(
-                "map_be5b9dcf925f5763c70f938d07381ce2",
+            var map_07e04f63034c935a8e1af92b830363cb = L.map(
+                "map_07e04f63034c935a8e1af92b830363cb",
                 {
                     center: [21.406686493377915, 82.05115589188614],
                     crs: L.CRS.EPSG3857,
@@ -395,7 +504,7 @@ Davda Colony, Pachpedi Naka RTP</option><option value="AADED">AADED</option><opt
 
         
     
-            var tile_layer_c40c25b8c2bb1aece8eda7f6d8a4ec24 = L.tileLayer(
+            var tile_layer_fac7cc72e75d811283855890c9c46a4f = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -412,16 +521,16 @@ Davda Colony, Pachpedi Naka RTP</option><option value="AADED">AADED</option><opt
             );
         
     
-            tile_layer_c40c25b8c2bb1aece8eda7f6d8a4ec24.addTo(map_be5b9dcf925f5763c70f938d07381ce2);
+            tile_layer_fac7cc72e75d811283855890c9c46a4f.addTo(map_07e04f63034c935a8e1af92b830363cb);
         
     
-            var marker_cluster_18f0913ff4151139cb6099e8321acc84 = L.markerClusterGroup(
+            var marker_cluster_1262785cdc2db076cbeefcdfbd47d48c = L.markerClusterGroup(
                 {
 }
             );
         
     
-            marker_cluster_18f0913ff4151139cb6099e8321acc84.addTo(map_be5b9dcf925f5763c70f938d07381ce2);
+            marker_cluster_1262785cdc2db076cbeefcdfbd47d48c.addTo(map_07e04f63034c935a8e1af92b830363cb);
         
     
             L.control.fullscreen(
@@ -431,10 +540,10 @@ Davda Colony, Pachpedi Naka RTP</option><option value="AADED">AADED</option><opt
   "titleCancel": "Exit Full Screen",
   "forceSeparateButton": false,
 }
-            ).addTo(map_be5b9dcf925f5763c70f938d07381ce2);
+            ).addTo(map_07e04f63034c935a8e1af92b830363cb);
         
     
-            var measure_control_fb0313012b67204c0c38ae1744562585 = new L.Control.Measure(
+            var measure_control_ca7c74f81ff1c962c32694757e5ea644 = new L.Control.Measure(
                 {
   "position": "topleft",
   "primaryLengthUnit": "meters",
@@ -446,7 +555,7 @@ Davda Colony, Pachpedi Naka RTP</option><option value="AADED">AADED</option><opt
   "primaryLengthUnit": "meters",
   "secondaryLengthUnit": "Kilometers",
 });
-            map_be5b9dcf925f5763c70f938d07381ce2.addControl(measure_control_fb0313012b67204c0c38ae1744562585);
+            map_07e04f63034c935a8e1af92b830363cb.addControl(measure_control_ca7c74f81ff1c962c32694757e5ea644);
 
             // Workaround for using this plugin with Leaflet>=1.8.0
             // https://github.com/ljagis/leaflet-measure/issues/171

@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_902240934edb5037ec6f3d92d8c630a5 {
+                #map_c297338bc7808e0fa66f869ce754c5aa {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -87,7 +87,7 @@
     
 <style>
     /* Initially hide the map */
-    #map_902240934edb5037ec6f3d92d8c630a5 {
+    #map_c297338bc7808e0fa66f869ce754c5aa {
         display: none;
     }
     #login-overlay {
@@ -158,7 +158,7 @@
             if (user === correctUsername && pass === atob(encodedPassword)) {
                 // On success, hide overlay and show map
                 document.getElementById('login-overlay').style.display = 'none';
-                const mapElement = document.getElementById('map_902240934edb5037ec6f3d92d8c630a5');
+                const mapElement = document.getElementById('map_c297338bc7808e0fa66f869ce754c5aa');
                 mapElement.style.display = 'block';
                 
                 // IMPORTANT: Tell the map to resize itself to fit the container
@@ -185,7 +185,7 @@
     });
 </script>
     
-            <div class="folium-map" id="map_902240934edb5037ec6f3d92d8c630a5" ></div>
+            <div class="folium-map" id="map_c297338bc7808e0fa66f869ce754c5aa" ></div>
         
 </body>
 <script>
@@ -455,7 +455,7 @@ Davda Colony, Pachpedi Naka RTP</option><option value="AADED">AADED</option><opt
 
     // This block ensures the JavaScript runs after the map is fully loaded.
     document.addEventListener('DOMContentLoaded', function () {
-        var mapName = 'map_902240934edb5037ec6f3d92d8c630a5';
+        var mapName = 'map_c297338bc7808e0fa66f869ce754c5aa';
         var checkMapReady = setInterval(function() {
             if (window[mapName] && window[mapName]._leaflet_id) {
                 clearInterval(checkMapReady);
@@ -487,8 +487,8 @@ Davda Colony, Pachpedi Naka RTP</option><option value="AADED">AADED</option><opt
         }, 100);
     });
     
-            var map_902240934edb5037ec6f3d92d8c630a5 = L.map(
-                "map_902240934edb5037ec6f3d92d8c630a5",
+            var map_c297338bc7808e0fa66f869ce754c5aa = L.map(
+                "map_c297338bc7808e0fa66f869ce754c5aa",
                 {
                     center: [21.41353435999323, 82.05069040672875],
                     crs: L.CRS.EPSG3857,
@@ -505,7 +505,7 @@ Davda Colony, Pachpedi Naka RTP</option><option value="AADED">AADED</option><opt
 
         
     
-            var tile_layer_19471e3a867647fc1603ebbac03db313 = L.tileLayer(
+            var tile_layer_39331f5b4bddadf576417865f00e375b = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -522,16 +522,16 @@ Davda Colony, Pachpedi Naka RTP</option><option value="AADED">AADED</option><opt
             );
         
     
-            tile_layer_19471e3a867647fc1603ebbac03db313.addTo(map_902240934edb5037ec6f3d92d8c630a5);
+            tile_layer_39331f5b4bddadf576417865f00e375b.addTo(map_c297338bc7808e0fa66f869ce754c5aa);
         
     
-            var marker_cluster_241e67ab3a5227462c8548de2ec44aeb = L.markerClusterGroup(
+            var marker_cluster_50ce74c5f7149fc5047383786d530003 = L.markerClusterGroup(
                 {
 }
             );
         
     
-            marker_cluster_241e67ab3a5227462c8548de2ec44aeb.addTo(map_902240934edb5037ec6f3d92d8c630a5);
+            marker_cluster_50ce74c5f7149fc5047383786d530003.addTo(map_c297338bc7808e0fa66f869ce754c5aa);
         
     
             L.control.fullscreen(
@@ -541,10 +541,10 @@ Davda Colony, Pachpedi Naka RTP</option><option value="AADED">AADED</option><opt
   "titleCancel": "Exit Full Screen",
   "forceSeparateButton": false,
 }
-            ).addTo(map_902240934edb5037ec6f3d92d8c630a5);
+            ).addTo(map_c297338bc7808e0fa66f869ce754c5aa);
         
     
-            var measure_control_90694c2aef73913f05aa5c7fbc07ed17 = new L.Control.Measure(
+            var measure_control_c3eceda5b98d485cf99395959e533a6e = new L.Control.Measure(
                 {
   "position": "topleft",
   "primaryLengthUnit": "meters",
@@ -556,7 +556,7 @@ Davda Colony, Pachpedi Naka RTP</option><option value="AADED">AADED</option><opt
   "primaryLengthUnit": "meters",
   "secondaryLengthUnit": "Kilometers",
 });
-            map_902240934edb5037ec6f3d92d8c630a5.addControl(measure_control_90694c2aef73913f05aa5c7fbc07ed17);
+            map_c297338bc7808e0fa66f869ce754c5aa.addControl(measure_control_c3eceda5b98d485cf99395959e533a6e);
 
             // Workaround for using this plugin with Leaflet>=1.8.0
             // https://github.com/ljagis/leaflet-measure/issues/171
